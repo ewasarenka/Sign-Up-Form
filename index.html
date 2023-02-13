@@ -8,68 +8,81 @@
 </head>
 <body>
 
-<div class="container">
-    <div class="logo-section">
-        <div class="logo">
-            <h1>
-                <span class="line"><img src="assets/logo-dreptakcz-1.png" alt="Logo KTW Dreptak"></span>
-                KTW DREPTAK
-            </h1>
+<div class="logo-section">
+    <div class="logo">
+        <h1>
+            <span class="line"><img src="assets/logo-dreptakcz-1.png" alt="Logo KTW Dreptak"></span>
+            KTW DREPTAK
+        </h1>
+    </div>
+</div>
+
+<div class="form-section">
+    <form action="#" method="post">
+        <div class="description-section">
+            <h2><span class="line">Carry as little as possible, but choose that little with care.</span>
+                </h2>
+            <h2><em>- Earl Shaffer</em></h2>
         </div>
-    </div>
 
-    <div class="form-section">
-        <form action="#" method="get">
-            <div class="description-section">
-                <h2><span class="line">This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams.</span>
-                Sign up <em>now</em> to get started.</h2>
-                <h2>You <em>know</em> you want to.</h2>
-            </div>
+        <div class="fill-section">
+            <h2>Let's do this!</h2>
 
-            <div class="fill-section">
-                <h2>Let's do this</h2>
-
-                <div class="input-subsection">
-                   <ul>
-                        <li>
-                            <label for="name">First name</label>
-                            <input type="text" required id="name" name="FirstName">
-                        </li>
-                        <li>
-                            <label for="lastname">Last name</label>
-                            <input type="text" required id="lastname" name="LastName">
-                        </li>
-                        <li>
-                            <label for="email">Email</label>
-                            <input type="email" required id="email" name="email">
-                        </li>
-                        <li>
-                            <label for="phone">Phone number</label>
-                            <input type="number" required id="phone" name="PhoneNumber">
-                        </li>
-                        <li>
-                            <label for="pwd">Password</label>
-                            <input type="password" required id="pwd" name="pwd">
-                        </li>
-                        <li>
-                            <label for="pwdConfirm">Confirm password</label>
-                            <input type="password" required id="pwdConfirm" name="pwdConfirm">
-                        </li>
-                   </ul> 
-                </div>
+            <div class="input-subsection">
+               <ul>
+                   <li>
+                       <label for="name">First name</label>
+                        <input type="text" required id="name" name="FirstName">
+                    </li>
+                    <li>
+                        <label for="lastname">Last name</label>
+                        <input type="text" required id="lastname" name="LastName">
+                    </li>
+                    <li>
+                        <label for="email">Email</label>
+                        <input type="email" required id="email" name="email" placeholder="example@email.com">
+                    </li>
+                    <li>
+                        <label for="phone">Phone number</label>
+                        <input type="text" required id="phone" name="PhoneNumber" placeholder="123456789" pattern="\d{9}">
+                    </li>
+                    <li>
+                        <label for="pwd">Password</label>
+                        <input type="password" required id="pwd" name="pwd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,32}" title="Three letter country code">
+                        <small id="confirmPassword-feedback"></small>
+                    </li>
+                    <li>
+                        <label for="pwdConfirm">Confirm password</label>
+                        <input type="password" required id="pwdConfirm" name="pwdConfirm">
+                    </li>
+               </ul> 
             </div>
-            <div class="button-section">
-                <button type="submit">Create Account</button>
-                <p>Already have an account? <a href="#">Log in</a></p>
-            </div>
-        </form>
-    </div>
+        </div>
+        <div class="button-section">
+            <button type="submit">Create Account</button>
+            <p>Already have an account? <a href="#">Log in</a></p>
+        </div>
+    </form>
 </div>
 
+<script>
+ 
+    function checkPassword() {
+        const pwd1 = document.querySelector('form').pwd.value;
+        const pwd2 = document.querySelector('form').pwdConfirm.value;
+        if (pwd1 != pwd2) {
+            feedback.innerHTML = "Password did not match.";
+            return false;
+        } else {
+            return true;
+        }
+    }
 
-<div class="template">
-    <img src="sign-up-form.png" alt="template">
-</div>
+    const myForm = document.querySelector('form');
+    const feedback = document.getElementById("confirmPassword-feedback");
+    myForm.onsubmit = checkPassword;
+
+</script>
 
 </body>
 </html>

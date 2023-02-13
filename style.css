@@ -1,12 +1,4 @@
 @font-face {
-    font-family: Norse-Bold;
-    font-weight: 700;
-    src: url(assets/Norse-Bold.woff2) format('woff2'),
-         url(assets/Norse-Bold.woff) format('woff');
-}
-
-
-@font-face {
     font-family: Merienda;
     font-weight: 600;
     src: url(assets/Merienda-SemiBold.woff2) format('woff2'),
@@ -15,25 +7,49 @@
 
 
 body {
-    margin: 0;    
+    margin: 0;  
+    font-family: Arial, Helvetica, sans-serif;  
+    background-color: #f9fafb;
 }
 
 
 label {
     text-transform: uppercase;
+    color: #3B4450;
+    letter-spacing: 1px;
 }
 
 ul {
     list-style: none;
     padding: 0;
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 1rem;
+   
 }
 
-li>* {
-    display: block;
+li {
+    margin: 0.5rem 0;
 }
+
+input {
+    display: block;
+    width: 80%;
+    max-width: 20rem;
+    height: 1.5rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 5px;
+    outline: none;
+    margin-top: 2px;
+}
+
+input:focus, input:focus-visible, input:focus-within {
+    border: 2px solid blue;
+    box-shadow: 0 0 10px #413F3C;
+    outline: none;
+}
+
+input[type="password"]:invalid {
+    border: 2px solid red;
+}
+
 
 button {
     background-color: #413F3C;
@@ -41,26 +57,25 @@ button {
     font-weight: 700;
     border: none;
     border-radius: 0.5em;
-    box-shadow: 0 0 10px #413F3C;
     padding: 1rem 3rem;
+    margin: 2rem auto;
 }
 
-.container {
-    margin: 0;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 40% 60%;
-    align-items: center;
+a, a:visited {
+    font-weight: 700;
+    text-decoration: none;
+    color: #413F3C;
 }
+
 
 .logo-section, .form-section {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .logo-section {
     background-image: url(assets/massimiliano-morosinotto.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: top center;
     background-color: #EDF0F7;
     display: flex;
     align-items: center;
@@ -89,13 +104,49 @@ button {
 
 form>div {
     padding-left: 3rem;
+    padding-right: 15%;
 }
 
+.form-section {
+    display: flex;
+    align-items: center;
+}
 
+.description-section {
+    margin-bottom: 5rem;
+}
+.fill-section {
+    box-shadow: 1px 3px 10px  #b9b9b9;
+    background-color: #fff;
+    padding: 2rem 3rem;
+}
+
+#confirmPassword-feedback {
+    color: red;
+  }
+
+
+@media screen and (min-width: 600px) {
+    body {
+        display: grid;
+        grid-template-columns: 40% 60%;
+    }
+}
+@media screen and (min-width: 1200px) { 
+
+    ul {
+    display: grid;
+    column-count: 2;
+    grid-template-columns: auto auto;
+    margin-right: auto;
+    }
+
+}
 
 .template>img {
     width: 100%;
     margin: 0;
     padding: 0;
 }   
+
 
