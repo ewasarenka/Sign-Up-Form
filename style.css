@@ -108,8 +108,11 @@ form>div {
 }
 
 .form-section {
+    width: 100%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
 }
 
 .description-section {
@@ -129,7 +132,7 @@ form>div {
 @media screen and (min-width: 600px) {
     body {
         display: grid;
-        grid-template-columns: 40% 60%;
+        grid-template-columns: 40vw 60vw;
     }
 }
 @media screen and (min-width: 1200px) { 
